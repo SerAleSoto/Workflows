@@ -1,17 +1,17 @@
 name: hola-mundo
 on: push
 jobs: 
-  hola-mundo-jobs:
-    runs-on: ubuntu-latest  
+  hola-mundo-node-jobs:
+    runs-on: ubuntu-22.04  
     steps: 
-      - name: Hola mundo
-        run: echo 'Hola mundo'
-      - name: Public IP
-        id: ip
-        uses: haythem/public-ip@v1.3
-      - name: Print Public IP
-        run: |
-         echo ${{ steps.ip.outputs.ipv4 }}
-         echo ${{ steps.ip.outputs.ipv6 }} 
-      - name: tavo
-        run: lsb_release -a
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+      - name: Configurar node.js  
+        uses: actions/setup-node@v4
+        with: 
+          node-version: 20
+      
+      - name: Ejecutar index.js
+        run: node index.js 
+
+

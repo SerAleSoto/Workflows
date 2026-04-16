@@ -1,0 +1,17 @@
+name: hola-mundo
+on: push
+jobs: 
+  hola-mundo-jobs:
+    runs-on: ubuntu-latest  
+    steps: 
+      - name: Hola mundo
+        run: echo 'Hola mundo'
+      - name: Public IP
+        id: ip
+        uses: haythem/public-ip@v1.3
+      - name: Print Public IP
+        run: |
+         echo ${{ steps.ip.outputs.ipv4 }}
+         echo ${{ steps.ip.outputs.ipv6 }} 
+      - name: tavo
+        run: lsb_release -a
