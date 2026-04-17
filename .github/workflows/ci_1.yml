@@ -11,7 +11,7 @@ jobs:
         with: 
           node-version: 20
       
-      - name: Ejecutar index.js
+      - name: Ejecutar-index.js
         run: node index.js 
 
 
