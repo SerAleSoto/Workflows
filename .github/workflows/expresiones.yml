@@ -18,9 +18,14 @@ jobs:
     if: ${{ inputs.edad >= 18 }}
     runs-on: ubuntu-latest
     steps:
-      - name: Correr script mayor
+      - name: Correr script
         run: echo "${{ inputs.nombre }} es mayor de edad"
-
+      - name: Mostrar nombre de evento
+        run: echo ${{ github.event_name}}
+      - name: Mostrar usuario
+        run: echo ${{github.actor}}
+      - name: Mostrar Ref
+        run: echo ${{github.ref}} -  ${{github.repository}}
   menor:
     if: ${{ inputs.edad < 18 }}
     runs-on: ubuntu-latest
